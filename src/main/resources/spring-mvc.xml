@@ -17,4 +17,13 @@
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+    <mvc:cors>
+        <mvc:mapping path="/**" allowed-origins="http://localhost:3000"
+         allowed-methods="GET"/>
+    </mvc:cors>
+
+    <bean name="/helloworldService" class="com.roderick.july.controller.ThriftHttpServiceExporter">
+        <property name="service" ref="helloWorldImpl" />
+        <property name="serviceInterface" value="com.roderick.july.controller.HelloWorld$Iface"/>
+    </bean>
 </beans>

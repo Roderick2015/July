@@ -3,7 +3,6 @@ package com.roderick.july.controller;
 import com.roderick.july.model.Cinema;
 import com.roderick.july.model.Movie;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
-import org.springframework.format.datetime.DateFormatter;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,11 +11,15 @@ import java.beans.PropertyEditor;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * Created by Roderick on 2016/8/18.
  */
+/*浏览器跨域请求，springmvc4.2以上版本添加了CORS支持，之前的版本需手动注册Filter*/
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping(value = {"/movieQuery"})
 public class MovieQueryController {
@@ -48,10 +51,10 @@ public class MovieQueryController {
         movie.setDigital("3D");
         movie.setDuration(86);
         movie.setType("英语");
-        LinkedList<String> list = new LinkedList<String>();
-        list.offer("18:15");
-        list.offer("19:30");
-        movie.setTimes(list);
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        map.put("18:15", 0);
+        map.put("22:30", 1);
+        movie.setScreenings(map);
 
         Movie movie2 = new Movie();
         movie2.setEnName(movieName);
@@ -60,10 +63,10 @@ public class MovieQueryController {
         movie2.setDigital("3D");
         movie2.setDuration(86);
         movie2.setType("普通话");
-        LinkedList<String> list2 = new LinkedList<String>();
-        list2.offer("20:15");
-        list2.offer("22:30");
-        movie2.setTimes(list2);
+        Map<String, Integer> map2 = new HashMap<String, Integer>();
+        map2.put("20:15", 1);
+        map2.put("23:30", 0);
+        movie2.setScreenings(map2);
 
         Cinema cinema = new Cinema();
         cinema.setName("深圳橙天嘉禾影城");

@@ -1,6 +1,7 @@
 package com.roderick.july.model;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Roderick on 2016/8/18.
@@ -12,7 +13,7 @@ public class Movie {
     public String digital;
     public int duration;
     public int price;
-    public List<String> times;
+    public Map<String, Integer> screenings; //电影场次时间，是否有票
 
     public String getDigital() {
         return digital;
@@ -62,11 +63,11 @@ public class Movie {
         this.price = price;
     }
 
-    public List<String> getTimes() {
-        return times;
+    public Map<String, Integer> getScreenings() {
+        return screenings;
     }
 
-    public void setTimes(List<String> times) {
-        this.times = times;
+    public void setScreenings(Map<String, Integer> screenings) {
+        this.screenings = screenings;
     }
 }
