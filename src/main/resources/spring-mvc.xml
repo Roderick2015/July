@@ -17,6 +17,7 @@
             <bean class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter"></bean>
         </mvc:message-converters>
     </mvc:annotation-driven>
+
     <mvc:cors>
         <mvc:mapping path="/**" allowed-origins="http://localhost:3000"
          allowed-methods="GET"/>

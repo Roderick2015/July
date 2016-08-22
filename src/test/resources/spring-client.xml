@@ -8,7 +8,7 @@
         <property name="serviceUrl"
                   value="http://localhost:8080/helloworldService"/>
         <property name="serviceInterface"
-                  value="com.roderick.july.controller.HelloWorld$Iface"/>
+                  value="com.roderick.remote.HelloWorld$Iface"/>
     </bean>
 
 </beans>

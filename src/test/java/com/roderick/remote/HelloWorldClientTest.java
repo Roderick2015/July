@@ -1,6 +1,5 @@
 package com.roderick.remote;
 
-import com.roderick.july.controller.HelloWorld;
 import org.apache.thrift.TException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
